@@ -20,17 +20,9 @@ import java.util.stream.Collectors;
 public class SurveyController {
 
 
-    @PostMapping(value = "/submit-survey", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/submit-survey")
     public void getSurveyResult(@RequestBody List<SurveyResult> surveyResults) {
-//        HttpHeaders headers = new HttpHeaders();
-//        headers.setContentType(MediaType.APPLICATION_JSON);
-//        HttpEntity<SubmittedSurvey> request = new HttpEntity<>(submittedSurvey, headers);
-        RestTemplate rt = new RestTemplate();
-//        ResponseEntity<SurveyResult[]> responseEntity = rt.getForEntity("http://localhost:3000/submit-survey", SurveyResult[].class);
-        ResponseEntity<SubmittedSurvey> responseEntity = rt.exchange("http://localhost:3000/submit-survey", HttpMethod.POST, null, SubmittedSurvey.class);
-        SubmittedSurvey objects = responseEntity.getBody();
-        log.info(objects.toString());
+        log.info(surveyResults.toString());
 
-        System.out.println(objects.getSurveyResults());
     }
 }
