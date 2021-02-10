@@ -26,4 +26,12 @@ public class Question {
     private List<Answer> answers;
 
 
+
+
+
+    public void addAnswer(Answer answer) {
+        answers.add(answer);
+    }
+
+
 }
